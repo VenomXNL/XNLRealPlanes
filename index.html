@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script>
+            var audioPlayer = null;
+            var audioPlayer2 = null;
+			var audioPlayerLoop = null;
+			var audioPlayerLoop2 = null;
+			var audioPlayerLoop3 = null;
+			var audioPlayerLoop4 = null;
+            // Listen for NUI Messages.
+            window.addEventListener('message', function(event) {
+                // Check for playSound transaction
+                if (event.data.transactionType == "playSound") {
+				
+                  if (audioPlayer != null) {
+                    audioPlayer.pause();
+                  }
+
+                  audioPlayer = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayer.volume = event.data.transactionVolume;
+                  audioPlayer.play();
+
+                }
+
+                if (event.data.transactionType == "playSound2") {
+				
+                  if (audioPlayer2 != null) {
+                    audioPlayer2.pause();
+                  }
+
+                  audioPlayer2 = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayer2.volume = event.data.transactionVolume;
+                  audioPlayer2.play();
+
+                }
+
+                if (event.data.transactionType == "playLoop") {
+				
+                  if (audioPlayerLoop != null) {
+                    audioPlayerLoop.pause();
+                  }
+
+                  audioPlayerLoop = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayerLoop.volume = event.data.transactionVolume;
+                  audioPlayerLoop.loop = true;
+				  audioPlayerLoop.play();
+                }
+
+                if (event.data.transactionType == "stopLoop") {
+				
+                  if (audioPlayerLoop != null) {
+                    audioPlayerLoop.pause();
+                  }
+                }
+
+				if (event.data.transactionType == "playLoop2") {
+				
+                  if (audioPlayerLoop2 != null) {
+                    audioPlayerLoop2.pause();
+                  }
+
+                  audioPlayerLoop2 = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayerLoop2.volume = event.data.transactionVolume;
+                  audioPlayerLoop2.loop = true;
+				  audioPlayerLoop2.play();
+                }
+
+                if (event.data.transactionType == "stopLoop2") {
+				
+                  if (audioPlayerLoop2 != null) {
+                    audioPlayerLoop2.pause();
+                  }
+                }
+
+				if (event.data.transactionType == "playLoop3") {
+				
+                  if (audioPlayerLoop3 != null) {
+                    audioPlayerLoop3.pause();
+                  }
+
+                  audioPlayerLoop3 = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayerLoop3.volume = event.data.transactionVolume;
+                  audioPlayerLoop3.loop = true;
+				  audioPlayerLoop3.play();
+                }
+
+				                
+				if (event.data.transactionType == "stopLoop3") {
+                  if (audioPlayerLoop3 != null) {
+                    audioPlayerLoop3.pause();
+                  }
+                }
+
+				
+				if (event.data.transactionType == "playLoop4") {
+				
+                  if (audioPlayerLoop3 != null) {
+                    audioPlayerLoop4.pause();
+                  }
+
+                  audioPlayerLoop4 = new Audio("./sounds/" + event.data.transactionFile + ".ogg");
+                  audioPlayerLoop4.volume = event.data.transactionVolume;
+                  audioPlayerLoop4.loop = true;
+				  audioPlayerLoop4.play();
+                }
+				
+                if (event.data.transactionType == "stopLoop4") {
+				
+                  if (audioPlayerLoop4 != null) {
+                    audioPlayerLoop4.pause();
+                  }
+                }
+			});
+        </script>
+    </head>
+</html>
