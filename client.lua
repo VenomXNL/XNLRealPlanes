@@ -160,7 +160,7 @@ TCASSCanRadiusAir = 80.0						-- Setting: The "Radar Scan" Radius size in air fo
 TCASGroundDetectMovingOnly = false				-- Setting: If TCAS only responds to moving planes/vehicles on ground (even when it does have a pilot/driver in it!)
 TCASGroundDetectGroundPersonelCARS = true		-- Setting: If TCAS will also detect ground vehicles (ONLY OFFICIAL AIRPORT VEHICLES!)
 XNL_AircraftComputerDebugOutput = false			-- Setting: Proberbly not important for you ;) (when set to true it outputs some test strings to the F8 console for testing purposes)
-XNL_PlanesAllowUseOfAircraftCarrier = true		-- Setting: Enable this one IF you have the aircraft carrier loaded and/or when you're using Bob74_IPL with the carrier enabled!
+XNL_PlanesAllowUseOfAircraftCarrier = false		-- Setting: Enable this one IF you have the aircraft carrier loaded and/or when you're using Bob74_IPL with the carrier enabled!
 XNL_CreateAirportBlips = true					-- Setting: This will automatically create blips on the map for airports where the aircraft is allowed to land at (and remove it when getting out again)
 XNL_ShowBlipShortRangeOnly = false				-- Setting: This setting will toggle the blips (IF set active above) to only show neaby (true) or always show them on the radar/map (true) (ONLY WHILE IN A PLANE!)
 XNL_ShowAltitudeInformationAtBottom = true		-- Setting: If this script should draw altitude information and 'flight status/instructions' on the bottom right of the screen
@@ -169,7 +169,7 @@ AutoPilotKeyName = "~INPUT_DROP_AMMO~"			-- [F10] Default, The "Display Name" fo
 AutoPilotKeyNumber = 57							-- [F10] Default, The "Key Number" for the AutoPilot Key	(Others here: https://docs.fivem.net/game-references/controls/)
 XNL_GlideSlopeSupportOn = true					-- Setting: If [F10] can also be used during a CORRECT landing procedure to initiate 'Glide Slope' (automated landing in our instance)
 XNL_GlideSlopeRadius = 130.0					-- The Detection Radius per radius (every landingstrip has 4 to 5 of them), increade to make detection sooner, decrease if they are conflicting to much (planes suddenly going to the runway next to it)
-XNL_DisableDontSink = true						-- If you or your players are 'to annoyed' by the 'small don't sink issue bug' then you can disable it here
+XNL_DisableDontSink = false						-- If you or your players are 'to annoyed' by the 'small don't sink issue bug' then you can disable it here
 
 --=============================================================================================================================
 -- Bellow are settings and angles per plane/aircraft or type,
@@ -2310,9 +2310,9 @@ function AnyPedInAircraft(X, Y, Z, Radius, MovingOnly, DetectGroundPersonel)
 								if IsPedSittingInAnyVehicle(Ped) then
 									XNLGroundModelFound = GetEntityModel(GetVehiclePedIsIn(Ped, false))
 								-- XNL and custom Vehicles 
-								if XNLGroundModelFound == GetHashKey('xnladmincar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
-								if XNLGroundModelFound == GetHashKey('xnldevelcar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
-								if XNLGroundModelFound == GetHashKey('xnldevelcar2') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnladmincar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnldevelcar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnldevelcar2') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
 
 								-- Emergency Vehicles
 								if XNLGroundModelFound == GetHashKey('firetruck') then return true end		-- We do allow firetrucks since we have yellow firetrucks at the airport, uncomment for NOT detecting them!
@@ -2324,8 +2324,8 @@ function AnyPedInAircraft(X, Y, Z, Radius, MovingOnly, DetectGroundPersonel)
 								if XNLGroundModelFound == GetHashKey('airtug') then return true end			-- The Airtug
 
 								-- Addon/"ported" Vehicles
-								if XNLGroundModelFound == GetHashKey('xnlferoci2') then return true end		-- The FlyUs Feroci Converted to GTA V for my server
-								if XNLGroundModelFound == GetHashKey('xnlperennial2') then return true end	-- The FlyUs Perennial Converted to GTA V for my server
+								--if XNLGroundModelFound == GetHashKey('xnlferoci2') then return true end		-- The FlyUs Feroci Converted to GTA V for my server
+								--if XNLGroundModelFound == GetHashKey('xnlperennial2') then return true end	-- The FlyUs Perennial Converted to GTA V for my server
 								
 								-- Additional airport vehicles we use on our server at the airport for missions (and thus registred/allow as airport vehicle)
 								if XNLGroundModelFound == GetHashKey('caddy3') then return true end			-- We do allow this one since we use it for baggae hauling and other RP missions
@@ -2357,9 +2357,9 @@ function AnyPedInAircraft(X, Y, Z, Radius, MovingOnly, DetectGroundPersonel)
 							if IsPedSittingInAnyVehicle(Ped) then
 								XNLGroundModelFound = GetEntityModel(GetVehiclePedIsIn(Ped, false))
 								-- XNL and custom Vehicles 
-								if XNLGroundModelFound == GetHashKey('xnladmincar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
-								if XNLGroundModelFound == GetHashKey('xnldevelcar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
-								if XNLGroundModelFound == GetHashKey('xnldevelcar2') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnladmincar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnldevelcar') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
+								--if XNLGroundModelFound == GetHashKey('xnldevelcar2') then return true end	-- You don't need these (is for my server's custom admin and developer cars)
 
 								-- Emergency Vehicles
 								if XNLGroundModelFound == GetHashKey('firetruck') then return true end		-- We do allow firetrucks since we have yellow firetrucks at the airport, uncomment for NOT detecting them!
@@ -2371,8 +2371,8 @@ function AnyPedInAircraft(X, Y, Z, Radius, MovingOnly, DetectGroundPersonel)
 								if XNLGroundModelFound == GetHashKey('airtug') then return true end			-- The Airtug
 
 								-- Addon/"ported" Vehicles
-								if XNLGroundModelFound == GetHashKey('xnlferoci2') then return true end		-- The FlyUs Feroci Converted to GTA V for my server
-								if XNLGroundModelFound == GetHashKey('xnlperennial2') then return true end	-- The FlyUs Perennial Converted to GTA V for my server
+								--if XNLGroundModelFound == GetHashKey('xnlferoci2') then return true end		-- The FlyUs Feroci Converted to GTA V for my server
+								--if XNLGroundModelFound == GetHashKey('xnlperennial2') then return true end	-- The FlyUs Perennial Converted to GTA V for my server
 								
 								-- Additional airport vehicles we use on our server at the airport for missions (and thus registred/allow as airport vehicle)
 								if XNLGroundModelFound == GetHashKey('caddy3') then return true end			-- We do allow this one since we use it for baggae hauling and other RP missions
